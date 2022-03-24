@@ -1960,7 +1960,7 @@ shared.UESP_InputEndedCon = UserInputService.InputEnded:Connect(function(input)
 			for i, Player in pairs(Players:GetPlayers()) do
 				local Character = GetCharacter(Player);
 
-				if Player ~= LocalPlayer and Player ~= Spectating and Character and Character:FindFirstChild'HumanoidRootPart' then
+				if Player ~= LocalPlayer and Player ~= Spectating and Character and Character:FindFirstChild'baseHitbox' then
 					local Head = Character:FindFirstChild'Head';
 					local Humanoid = Character:FindFirstChildOfClass'Humanoid';
 					
@@ -2296,7 +2296,7 @@ local function UpdatePlayerData()
 			if Pass and Character then
 				local Humanoid = Character:FindFirstChildOfClass'Humanoid';
 				local Head = Character:FindFirstChild'Head';
-				local HumanoidRootPart = Character:FindFirstChild(CustomRootPartName or 'HumanoidRootPart')
+				local HumanoidRootPart = Character:FindFirstChild(CustomRootPartName or 'baseHitbox')
 
 				local Dead = (Humanoid and Humanoid:GetState().Name == 'Dead')
 				if type(GetAliveState) == 'function' then
